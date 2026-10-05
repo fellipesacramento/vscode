@@ -1,0 +1,133 @@
+# ============================================================
+# VS Code Portavel - .gitignore GLOBAL DO REPOSITORIO
+# ============================================================
+# Objetivo:
+# - versionar o workspace e os projetos;
+# - versionar configuracoes textuais relevantes do VS Code;
+# - preservar configuracoes de projeto em .vscode/;
+# - registrar metadados uteis sobre extensoes instaladas;
+# - NAO versionar binarios/fixos da IDE, extensoes inteiras,
+#   caches, historicos, bancos internos e arquivos temporarios.
+# ============================================================
+
+# Por padrao, nenhum ARQUIVO entra.
+*
+# Permite atravessar diretorios para que as excecoes funcionem.
+!*/
+
+# ============================================================
+# ARQUIVOS DA RAIZ DO REPOSITORIO
+# ============================================================
+# A barra inicial limita estas excecoes somente a raiz.
+!/.gitignore
+!/.gitattributes
+!/README
+!/README.md
+!/README.txt
+
+# ============================================================
+# WORKSPACE / PROJETOS
+# ============================================================
+
+# Libera explicitamente o workspace, seus diretorios e arquivos.
+!/workspace_vscode/
+!/workspace_vscode/**/
+!/workspace_vscode/**
+
+# Builds, dependencias e caches reconstruiveis.
+**/node_modules/
+**/target/
+**/bin/
+**/obj/
+**/build/
+**/dist/
+**/.gradle/
+**/.cache/
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/.venv/
+**/venv/
+
+# Compilados e temporarios.
+**/*.class
+**/*.pyc
+**/*.pyo
+**/*.tmp
+**/*.temp
+**/*.bak
+**/*.log
+**/*~
+
+# Arquivos de sistema/IDE alheios.
+**/.idea/
+**/*.iml
+**/.DS_Store
+**/Thumbs.db
+
+# .vscode/ dentro dos projetos NAO e ignorado.
+# Assim, settings.json, tasks.json, launch.json e extensions.json
+# de cada projeto/workspace podem ser versionados.
+
+# ============================================================
+# VS CODE PORTAVEL - CONFIGURACOES DO USUARIO
+# ============================================================
+# A pasta "data" caracteriza o modo portavel.
+# Liberamos somente configuracoes textuais estaveis.
+
+# Configuracoes principais do usuario.
+!/VSCode-win32-x64-*/data/user-data/User/settings.json
+!/VSCode-win32-x64-*/data/user-data/User/keybindings.json
+
+# Snippets personalizados.
+!/VSCode-win32-x64-*/data/user-data/User/snippets/
+!/VSCode-win32-x64-*/data/user-data/User/snippets/**
+
+# Perfis do VS Code.
+!/VSCode-win32-x64-*/data/user-data/User/profiles/
+!/VSCode-win32-x64-*/data/user-data/User/profiles/**/
+!/VSCode-win32-x64-*/data/user-data/User/profiles/**/settings.json
+!/VSCode-win32-x64-*/data/user-data/User/profiles/**/keybindings.json
+!/VSCode-win32-x64-*/data/user-data/User/profiles/**/extensions.json
+!/VSCode-win32-x64-*/data/user-data/User/profiles/**/snippets/
+!/VSCode-win32-x64-*/data/user-data/User/profiles/**/snippets/**
+
+# Configuracao de inicializacao, quando existir.
+!/VSCode-win32-x64-*/data/user-data/argv.json
+
+# Registro/metadados das extensoes instaladas.
+# Mantem a lista, mas NAO versiona os arquivos das extensoes.
+!/VSCode-win32-x64-*/data/extensions/extensions.json
+
+# ============================================================
+# DELIBERADAMENTE NAO VERSIONADO
+# ============================================================
+
+# A instalacao fisica do VS Code permanece ignorada:
+# - Code.exe, DLLs, recursos e runtime;
+# - resources/app e extensoes embutidas;
+# - diretorios criados por atualizacoes;
+# - extensoes completas em data/extensions/<extensao>/.
+
+# Estado volatil do usuario tambem permanece ignorado:
+# - workspaceStorage
+# - History
+# - Backups
+# - Cache / CachedData / Code Cache / GPUCache
+# - logs
+# - Service Worker
+# - state.vscdb e outros bancos internos
+# - globalStorage de extensoes
+
+# ============================================================
+# SEGURANCA
+# ============================================================
+# Nao grave senhas, tokens ou chaves diretamente em settings.json.
+# Prefira variaveis de ambiente, arquivos locais ignorados ou o
+# armazenamento seguro das proprias extensoes.
+# ============================================================
+# Hugo - arquivos gerados
+**/.hugo_build.lock
+**/public/
+**/resources/_gen/
