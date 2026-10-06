@@ -5,13 +5,14 @@
 # - versionar o workspace e os projetos;
 # - versionar configuracoes textuais relevantes do VS Code;
 # - preservar configuracoes de projeto em .vscode/;
-# - registrar metadados uteis sobre extensoes instaladas;
+# - registrar, quando desejado, uma lista textual das extensoes;
 # - NAO versionar binarios/fixos da IDE, extensoes inteiras,
 #   caches, historicos, bancos internos e arquivos temporarios.
 # ============================================================
 
 # Por padrao, nenhum ARQUIVO entra.
 *
+
 # Permite atravessar diretorios para que as excecoes funcionem.
 !*/
 
@@ -24,6 +25,15 @@
 !/README
 !/README.md
 !/README.txt
+!/00_PROJETO.md
+
+# Lista textual opcional das extensoes instaladas.
+# Pode ser regenerada sem versionar os arquivos fisicos das extensoes.
+!/extensions-list.txt
+
+# Backup temporario de metadata Git corrompida.
+# Nunca deve ser versionado.
+.git_corrompido_*/
 
 # ============================================================
 # WORKSPACE / PROJETOS
@@ -68,37 +78,55 @@
 
 # .vscode/ dentro dos projetos NAO e ignorado.
 # Assim, settings.json, tasks.json, launch.json e extensions.json
-# de cada projeto/workspace podem ser versionados.
+# especificos de cada projeto/workspace podem ser versionados.
 
 # ============================================================
 # VS CODE PORTAVEL - CONFIGURACOES DO USUARIO
 # ============================================================
-# A pasta "data" caracteriza o modo portavel.
-# Liberamos somente configuracoes textuais estaveis.
+# Instalacao portavel ATIVA:
+#   VSCode-win32-x64-1.140.0
+#
+# IMPORTANTE:
+# Durante futuras atualizacoes, altere apenas este bloco para apontar
+# para a nova pasta ativa. Isso evita versionar configuracoes de duas
+# versoes do VS Code ao mesmo tempo.
+#
+# O settings.json e versionavel porque representa configuracoes
+# relevantes do ambiente. Ele NAO pode conter senhas, tokens ou
+# chaves de API em texto puro.
 
 # Configuracoes principais do usuario.
-!/VSCode-win32-x64-*/data/user-data/User/settings.json
-!/VSCode-win32-x64-*/data/user-data/User/keybindings.json
+!/VSCode-win32-x64-1.140.0/data/user-data/User/settings.json
+!/VSCode-win32-x64-1.140.0/data/user-data/User/keybindings.json
 
 # Snippets personalizados.
-!/VSCode-win32-x64-*/data/user-data/User/snippets/
-!/VSCode-win32-x64-*/data/user-data/User/snippets/**
+!/VSCode-win32-x64-1.140.0/data/user-data/User/snippets/
+!/VSCode-win32-x64-1.140.0/data/user-data/User/snippets/**
 
 # Perfis do VS Code.
-!/VSCode-win32-x64-*/data/user-data/User/profiles/
-!/VSCode-win32-x64-*/data/user-data/User/profiles/**/
-!/VSCode-win32-x64-*/data/user-data/User/profiles/**/settings.json
-!/VSCode-win32-x64-*/data/user-data/User/profiles/**/keybindings.json
-!/VSCode-win32-x64-*/data/user-data/User/profiles/**/extensions.json
-!/VSCode-win32-x64-*/data/user-data/User/profiles/**/snippets/
-!/VSCode-win32-x64-*/data/user-data/User/profiles/**/snippets/**
+!/VSCode-win32-x64-1.140.0/data/user-data/User/profiles/
+!/VSCode-win32-x64-1.140.0/data/user-data/User/profiles/**/
+!/VSCode-win32-x64-1.140.0/data/user-data/User/profiles/**/settings.json
+!/VSCode-win32-x64-1.140.0/data/user-data/User/profiles/**/keybindings.json
+!/VSCode-win32-x64-1.140.0/data/user-data/User/profiles/**/extensions.json
+!/VSCode-win32-x64-1.140.0/data/user-data/User/profiles/**/snippets/
+!/VSCode-win32-x64-1.140.0/data/user-data/User/profiles/**/snippets/**
 
 # Configuracao de inicializacao, quando existir.
-!/VSCode-win32-x64-*/data/user-data/argv.json
+!/VSCode-win32-x64-1.140.0/data/user-data/argv.json
 
-# Registro/metadados das extensoes instaladas.
-# Mantem a lista, mas NAO versiona os arquivos das extensoes.
-!/VSCode-win32-x64-*/data/extensions/extensions.json
+# ============================================================
+# EXTENSOES
+# ============================================================
+# As extensoes ativas NAO ficam dentro do Google Drive.
+# A variavel de ambiente VSCODE_EXTENSIONS aponta para:
+#   D:\Caches\VSCode
+#
+# Por isso, data/extensions e qualquer copia fisica das extensoes
+# dentro da instalacao portavel permanecem fora do versionamento.
+#
+# Se for util registrar o conjunto instalado, gere/atualize
+# extensions-list.txt na raiz do repositorio.
 
 # ============================================================
 # DELIBERADAMENTE NAO VERSIONADO
@@ -108,7 +136,7 @@
 # - Code.exe, DLLs, recursos e runtime;
 # - resources/app e extensoes embutidas;
 # - diretorios criados por atualizacoes;
-# - extensoes completas em data/extensions/<extensao>/.
+# - extensoes completas.
 
 # Estado volatil do usuario tambem permanece ignorado:
 # - workspaceStorage
@@ -123,11 +151,17 @@
 # ============================================================
 # SEGURANCA
 # ============================================================
-# Nao grave senhas, tokens ou chaves diretamente em settings.json.
-# Prefira variaveis de ambiente, arquivos locais ignorados ou o
-# armazenamento seguro das proprias extensoes.
+# settings.json E versionado neste repositorio.
+# Portanto:
+# - NUNCA grave senhas, tokens ou chaves de API diretamente nele;
+# - use autenticacao da propria extensao, armazenamento seguro,
+#   variaveis de ambiente ou arquivos locais ignorados;
+# - antes de commit/push, revise o diff do settings.json.
 # ============================================================
-# Hugo - arquivos gerados
+
+# ============================================================
+# HUGO - ARQUIVOS GERADOS
+# ============================================================
 **/.hugo_build.lock
 **/public/
 **/resources/_gen/
