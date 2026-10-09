@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+      "name": "workspace",
+      "path": "../workspace"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.metadata": true
+    },
+    "search.exclude": {
+      "**/.metadata/**": true,
+      "**/bin/**": true,
+      "**/target/**": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "vscjava.vscode-java-pack",
+      "vscjava.vscode-maven"
+    ]
+  }
+}

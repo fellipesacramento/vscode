@@ -2,7 +2,8 @@
 # VS Code Portavel - .gitignore GLOBAL DO REPOSITORIO
 # ============================================================
 # Objetivo:
-# - versionar o workspace e os projetos;
+# - versionar somente configuracoes e a entrada do VS Code;
+# - manter codigos em ../workspace, com versionamento separado;
 # - versionar configuracoes textuais relevantes do VS Code;
 # - preservar configuracoes de projeto em .vscode/;
 # - registrar, quando desejado, uma lista textual das extensoes;
@@ -26,6 +27,8 @@
 !/README.md
 !/README.txt
 !/00_PROJETO.md
+!/desenvolvimento.code-workspace
+!/abrir_workspace.cmd
 
 # Lista textual opcional das extensoes instaladas.
 # Pode ser regenerada sem versionar os arquivos fisicos das extensoes.
@@ -39,10 +42,9 @@
 # WORKSPACE / PROJETOS
 # ============================================================
 
-# Libera explicitamente o workspace, seus diretorios e arquivos.
-!/workspace_vscode/
-!/workspace_vscode/**/
-!/workspace_vscode/**
+# Os projetos foram movidos para ../workspace.
+# Uma copia acidental na pasta antiga nao deve voltar a este repositorio.
+/workspace_vscode/
 
 # Builds, dependencias e caches reconstruiveis.
 **/node_modules/
@@ -147,6 +149,10 @@
 # - Service Worker
 # - state.vscdb e outros bancos internos
 # - globalStorage de extensoes
+
+# Impede tambem a varredura de caminhos longos dos indices e seus backups.
+/VSCode-win32-x64-1.140.0/data/user-data/User/workspaceStorage/
+/VSCode-win32-x64-1.140.0/data/user-data/logs/
 
 # ============================================================
 # SEGURANCA
