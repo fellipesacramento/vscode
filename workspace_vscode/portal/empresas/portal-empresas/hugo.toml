@@ -1,6 +1,0 @@
-baseURL = "http://localhost:1313/"
-languageCode = "pt-br"
-title = "Radar de Empresas"
-
-[params]
-description = "Portal minimalista para acompanhamento de empresas"

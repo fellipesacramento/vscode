@@ -1,0 +1,41 @@
+# ============================================================
+# utilitarios - .gitignore LOCAL
+# ============================================================
+# Esta pasta veio de outro workspace/repositorio.
+# A .metadata daqui e legado do workspace antigo e NAO deve ser
+# versionada agora que o conteudo esta dentro do workspace principal.
+# ============================================================
+
+# Metadados do workspace antigo
+.metadata/
+
+# Maven / builds reconstruiveis
+target/
+bin/
+
+# Caches / dependencias
+.gradle/
+node_modules/
+.cache/
+
+# Compilados / temporarios
+*.class
+*.log
+*.tmp
+*.temp
+*.bak
+*~
+
+# Outras IDEs / sistema operacional
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# IMPORTANTE:
+# NAO ignorar:
+# .project
+# .classpath
+# .settings/
+# pom.xml
+# src/

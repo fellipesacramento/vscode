@@ -1,0 +1,11 @@
+eclipse.m2.WorkspacelifecycleMappingsLocation=D\:/workspace/java/.metadata/.plugins/org.eclipse.m2e.core/lifecycle-mapping-metadata.xml
+eclipse.m2.defaultRuntime=maven3.9.16
+eclipse.m2.downloadJavadoc=true
+eclipse.m2.globalSettingsFile=D\:\\arquivo de programas grandes\\apache-maven-3.9.16\\conf\\settings.xml
+eclipse.m2.runtimes=maven3.9.16
+eclipse.m2.runtimesNodes/maven3.9.16/location=D\:\\arquivo de programas grandes\\apache-maven-3.9.16
+eclipse.m2.runtimesNodes/maven3.9.16/type=EXTERNAL
+eclipse.m2.unkownMojoExecutionAction=execute
+eclipse.m2.userSettingsFile=D\:\\arquivo de programas grandes\\apache-maven-3.9.16\\conf\\settings.xml
+eclipse.m2.userToolchainsFile=D\:\\arquivo de programas grandes\\apache-maven-3.9.16\\conf\\toolchains.xml
+eclipse.preferences.version=1

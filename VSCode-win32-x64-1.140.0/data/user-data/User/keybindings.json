@@ -1,0 +1,7 @@
+[
+    {
+        "key": "ctrl+shift+i",
+        "command": "editor.debug.action.showDebugHover",
+        "when": "editorTextFocus && inDebugMode && debugState == 'stopped'"
+    }
+]
