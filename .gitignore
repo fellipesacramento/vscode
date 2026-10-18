@@ -29,6 +29,7 @@
 !/00_PROJETO.md
 !/desenvolvimento.code-workspace
 !/abrir_workspace.cmd
+!/abrir_ofx_utilitarios.cmd
 
 # Lista textual opcional das extensoes instaladas.
 # Pode ser regenerada sem versionar os arquivos fisicos das extensoes.

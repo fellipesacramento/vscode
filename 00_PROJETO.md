@@ -1,4 +1,4 @@
-﻿# VSCode — Entrada do Projeto
+# VSCode — Entrada do Projeto
 
 
 ## Finalidade
@@ -28,8 +28,10 @@ Meu Drive
         │   ├── VSCode-win32-x64-1.140.0/
         │   ├── desenvolvimento.code-workspace
         │   └── abrir_workspace.cmd
-        └── workspace/                      # codigos compartilhados com Eclipse
-            └── ofx/utilitarios/ofx/
+        └── workspaces/                     # pastas de projetos
+            ├── workspace_estudos/
+            └── workspace_utilitarios/
+                └── ofx/ofx/
 ```
 
 
@@ -51,27 +53,21 @@ A pasta `vscode` deve ser tratada como o **ponto de entrada do projeto**. Não p
 Use esta área quando a tarefa envolver a **instalação do VSCode**, atualização, componentes internos, plugins/extensões instalados no ambiente portátil ou configurações que pertençam à própria instalação.
 
 
-### Workspace compartilhado entre VS Code e Eclipse
+### Workspaces atuais e Java 21
 
+- **Raiz atual:** `D:\googledrive\git\desenvolvimento\workspaces`.
+- **Estudos:** `workspace_estudos/` (sem projeto Maven no inventário de 17/10/2026).
+- **Utilitários:** `workspace_utilitarios/`.
+- **Projeto OFX atual:** `workspace_utilitarios/ofx/ofx/`, contendo `pom.xml` e os fontes Java.
+- **Git do OFX observado:** `workspace_utilitarios/ofx/.git`, independente da instalação do editor.
 
-- **Pasta:** `../workspace/`, fora do repositorio de configuracoes do VS Code.
-- **Caminho local:** `D:\googledrive\git\desenvolvimento\workspace`.
-- **Caminho logico:** `Meu Drive / git / desenvolvimento / workspace`.
-- **Folder ID:** nao verificado apos a mudanca; usar o caminho informado pelo usuario para o trabalho local.
-- **Finalidade:** codigos compartilhados entre VS Code e Eclipse, com versionamento separado das ferramentas.
-- **Projeto observado em 09/10/2026:** `ofx/utilitarios/ofx/`, com `pom.xml`, `.project`, `.classpath` e `.settings/`.
+`desenvolvimento.code-workspace` abre Estudos e Utilitarios. `abrir_workspace.cmd` abre esse arquivo e prepara Java 21, Maven e extensões compartilhadas. `abrir_ofx_utilitarios.cmd` abre diretamente a pasta do OFX existente. O atalho geral oferece a tarefa padrão de compilar/testar OFX com Ctrl+Shift+B.
 
+O JDK 21 permanece em `../jdk/jdk-21_windows-x64_bin/jdk-21.0.12.1`; o Maven permanece em `../maven/apache-maven-3.9.16`. A mudança foi no caminho dos projetos, não na instalação dessas ferramentas.
 
-Use esta área quando a tarefa envolver **código-fonte, projetos, workspaces ou configurações específicas de projeto**.
+O `pom.xml` do OFX declara `maven.compiler.release=21` e o compilador Maven 3.15.0. Essa declaração mantém o nível da linguagem consistente no Maven, VS Code e Eclipse. No Eclipse, importar a pasta atual do OFX como Existing Maven Project, sem copiar fontes; operação não validada nesta correção.
 
-Para abrir no VS Code, executar `abrir_workspace.cmd` ou abrir `desenvolvimento.code-workspace`. A referencia `../workspace` e relativa a este repositorio. Tambem e possivel abrir diretamente a pasta nova: as configuracoes globais de Java usam `Standard`, transporte `stdio` e excluem `bin`, `target` e `.metadata` da importacao.
-
-No Eclipse, importar `D:\googledrive\git\desenvolvimento\workspace\ofx\utilitarios\ofx` como **Existing Maven Project**, sem copiar os fontes. O Eclipse pode manter seu estado de interface e indices em uma pasta propria. Compartilhar os fontes nao exige compartilhar os caches das duas ferramentas.
-
-O repositorio Git da pasta `workspace` e independente deste repositorio e atende a todos os projetos da pasta. Dois commits do historico dos fontes foram preservados na separacao de 09/10/2026, com caminhos ajustados e caches excluidos. O historico original permanece neste repositorio. O novo repositorio ainda nao possui remoto.
-
-As exclusoes de `workspace_vscode/` mostradas no Git deste repositorio correspondem a mudanca de pasta feita pelo usuario. A separacao nao criou um novo commit nem executou push. As alteracoes atuais permanecem para revisao.
-
+Os relatórios de 09/10 e do primeiro reparo de 17/10 preservam os caminhos históricos anteriores (`workspace/ofx/...`). Eles são evidências históricas; os caminhos operacionais atuais são os desta seção. A correção não moveu fontes nem alterou o histórico Git.
 
 ## Regra principal
 
@@ -80,7 +76,7 @@ Antes de alterar qualquer arquivo, identificar se a tarefa pertence à **instala
 
 
 - Alterações no programa, extensões ou configuração global do VSCode: começar em `VSCode-win32-x64-1.140.0/`.
-- Alterações em projetos, código e configurações locais de projeto: começar em `../workspace/`.
+- Alterações em projetos, código e configurações locais de projeto: começar em `../workspaces/`.
 - Não misturar arquivos do executável com arquivos do workspace.
 - Não criar uma segunda instalação ou um segundo workspace quando a tarefa puder ser executada usando os caminhos oficiais acima.
 
@@ -110,7 +106,7 @@ O Git/GitHub continua sendo a referência de histórico e versionamento para os 
 - Priorizar o Folder ID `1zpMdvFA8O56iKZBBqq7Y_z0trx5Rjrk9` para evitar ambiguidade.
 - Não solicitar anexos do projeto quando a informação necessária estiver acessível nesta pasta.
 - Antes de instalar, remover ou reconfigurar uma extensão, localizar os arquivos efetivamente usados pela instalação portátil atual.
-- Antes de editar um projeto, localizar primeiro a pasta correspondente dentro de `D:\googledrive\git\desenvolvimento\workspace`.
+- Antes de editar um projeto, localizar primeiro a pasta correspondente dentro de `D:\googledrive\git\desenvolvimento\workspaces`.
 - Não presumir que uma pasta chamada `.vscode` encontrada fora desta hierarquia pertence a este projeto.
 - Preservar arquivos versionados e consultar o Git antes de operações que possam sobrescrever ou reverter configurações.
 - Não alterar binários ou arquivos fixos da instalação sem que a tarefa exija isso explicitamente.

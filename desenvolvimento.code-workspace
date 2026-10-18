@@ -1,19 +1,49 @@
 {
   "folders": [
     {
-      "name": "workspace",
-      "path": "../workspace"
+      "name": "Utilitarios",
+      "path": "../workspaces/workspace_utilitarios"
+    },
+    {
+      "name": "Estudos",
+      "path": "../workspaces/workspace_estudos"
     }
   ],
   "settings": {
+    "java.configuration.updateBuildConfiguration": "automatic",
     "files.exclude": {
       "**/.metadata": true
+    },
+    "files.watcherExclude": {
+      "**/.metadata/**": true,
+      "**/target/**": true,
+      "**/bin/**": true
     },
     "search.exclude": {
       "**/.metadata/**": true,
       "**/bin/**": true,
       "**/target/**": true
     }
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "OFX: compilar e testar",
+        "type": "shell",
+        "command": "D:\\googledrive\\git\\desenvolvimento\\maven\\apache-maven-3.9.16\\bin\\mvn.cmd",
+        "args": ["-o", "-B", "-ntp", "verify"],
+        "options": {
+          "cwd": "${workspaceFolder:Utilitarios}/ofx/ofx",
+          "env": {
+            "JAVA_HOME": "D:\\googledrive\\git\\desenvolvimento\\jdk\\jdk-21_windows-x64_bin\\jdk-21.0.12.1"
+          },
+          "shell": { "executable": "cmd.exe", "args": ["/d", "/c"] }
+        },
+        "group": { "kind": "build", "isDefault": true },
+        "problemMatcher": []
+      }
+    ]
   },
   "extensions": {
     "recommendations": [
