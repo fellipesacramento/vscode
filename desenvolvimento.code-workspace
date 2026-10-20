@@ -7,6 +7,9 @@
     {
       "name": "Estudos",
       "path": "../workspaces/workspace_estudos"
+    },
+    {
+      "path": "../workspaces/workspace_estudos/teste_fullstack"
     }
   ],
   "settings": {
