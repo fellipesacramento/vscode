@@ -26,7 +26,8 @@
       "**/.metadata/**": true,
       "**/bin/**": true,
       "**/target/**": true
-    }
+    },
+    "java.compile.nullAnalysis.mode": "disabled"
   },
   "tasks": {
     "version": "2.0.0",
