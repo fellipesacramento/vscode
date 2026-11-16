@@ -24,11 +24,15 @@
     "chat.viewSessions.orientation": "stacked",
     "chatgpt.cliExecutable": "",
     "chatgpt.localeOverride": "pt-BR",
-    "java.jdt.ls.java.home": "D:\\googledrive\\git\\desenvolvimento\\jdk\\jdk-21_windows-x64_bin\\jdk-21.0.12.1",
+    "java.jdt.ls.java.home": "D:\\googledrive\\git\\desenvolvimento\\jdk\\jdk-25_windows-x64_bin\\jdk-25.0.5.0.3",
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-21",
-            "path": "D:\\googledrive\\git\\desenvolvimento\\jdk\\jdk-21_windows-x64_bin\\jdk-21.0.12.1",
+            "path": "D:\\googledrive\\git\\desenvolvimento\\jdk\\jdk-21_windows-x64_bin\\jdk-21.0.12.1"
+        },
+        {
+            "name": "JavaSE-25",
+            "path": "D:\\googledrive\\git\\desenvolvimento\\jdk\\jdk-25_windows-x64_bin\\jdk-25.0.5.0.3",
             "default": true
         }
     ],
@@ -39,7 +43,7 @@
     "maven.terminal.customEnv": [
         {
             "environmentVariable": "JAVA_HOME",
-            "value": "D:\\googledrive\\git\\desenvolvimento\\jdk\\jdk-21_windows-x64_bin\\jdk-21.0.12.1"
+            "value": "D:\\googledrive\\git\\desenvolvimento\\jdk\\jdk-25_windows-x64_bin\\jdk-25.0.5.0.3"
         },
         {
             "environmentVariable": "MAVEN_HOME",
@@ -50,7 +54,7 @@
             "value": "D:\\googledrive\\git\\desenvolvimento\\maven\\apache-maven-3.9.16"
         }
     ],
-    "spring-boot.ls.java.home": "D:\\googledrive\\git\\desenvolvimento\\jdk\\jdk-21_windows-x64_bin\\jdk-21.0.12.1",
+    "spring-boot.ls.java.home": "D:\\googledrive\\git\\desenvolvimento\\jdk\\jdk-25_windows-x64_bin\\jdk-25.0.5.0.3",
     "git.openRepositoryInParentFolders": "always",
     "chat.permissions.default": "autopilot",
     "java.transport": "stdio",
@@ -87,5 +91,11 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "chat.tools.terminal.autoApprove": {
+    "java": true,
+    "mvn -q clean": true,
+    "/^ForEach-Object \\{ \"\\{0\\} \\{1\\}\" -f \\$_\\.Extension,\\$_\\.FullName \\}$/": true,
+    "winget": true
   }
 }

@@ -53,19 +53,19 @@ A pasta `vscode` deve ser tratada como o **ponto de entrada do projeto**. Não p
 Use esta área quando a tarefa envolver a **instalação do VSCode**, atualização, componentes internos, plugins/extensões instalados no ambiente portátil ou configurações que pertençam à própria instalação.
 
 
-### Workspaces atuais e Java 21
+### Workspaces atuais e Java 25
 
 - **Raiz atual:** `D:\googledrive\git\desenvolvimento\workspaces`.
-- **Estudos:** `workspace_estudos/` (sem projeto Maven no inventário de 17/10/2026).
+- **Estudos:** `workspace_estudos/`, incluindo o projeto `teste_fullstack`. Seu backend Maven usa Java 25 e Spring Boot 3.5.16.
 - **Utilitários:** `workspace_utilitarios/`.
 - **Projeto OFX atual:** `workspace_utilitarios/ofx/ofx/`, contendo `pom.xml` e os fontes Java.
 - **Git do OFX observado:** `workspace_utilitarios/ofx/.git`, independente da instalação do editor.
 
-`desenvolvimento.code-workspace` abre Estudos e Utilitarios. `abrir_workspace.cmd` abre esse arquivo e prepara Java 21, Maven e extensões compartilhadas. `abrir_ofx_utilitarios.cmd` abre diretamente a pasta do OFX existente. O atalho geral oferece a tarefa padrão de compilar/testar OFX com Ctrl+Shift+B.
+`desenvolvimento.code-workspace` abre Estudos, Utilitarios e teste_fullstack. `abrir_workspace.cmd` abre esse arquivo e prepara Java 25, Maven e extensões compartilhadas. `abrir_ofx_utilitarios.cmd` abre diretamente a pasta do OFX existente. O atalho geral oferece a tarefa padrão de compilar/testar OFX com Ctrl+Shift+B.
 
-O JDK 21 permanece em `../jdk/jdk-21_windows-x64_bin/jdk-21.0.12.1`; o Maven permanece em `../maven/apache-maven-3.9.16`. A mudança foi no caminho dos projetos, não na instalação dessas ferramentas.
+O JDK ativo é `../jdk/jdk-25_windows-x64_bin/jdk-25.0.5.0.3`. O JDK 21 segue disponível como opção no VS Code e no importador Gradle. O Maven permanece em `../maven/apache-maven-3.9.16`. O lançador aplica as variáveis somente ao processo que inicia.
 
-O `pom.xml` do OFX declara `maven.compiler.release=21` e o compilador Maven 3.15.0. Essa declaração mantém o nível da linguagem consistente no Maven, VS Code e Eclipse. No Eclipse, importar a pasta atual do OFX como Existing Maven Project, sem copiar fontes; operação não validada nesta correção.
+O `pom.xml` do OFX declara `maven.compiler.release=25` e o compilador Maven 3.15.0. Essa declaração mantém o nível da linguagem consistente no Maven, VS Code e Eclipse. No Eclipse, importar a pasta atual do OFX como Existing Maven Project, sem copiar fontes; operação não validada nesta correção.
 
 Os relatórios de 09/10 e do primeiro reparo de 17/10 preservam os caminhos históricos anteriores (`workspace/ofx/...`). Eles são evidências históricas; os caminhos operacionais atuais são os desta seção. A correção não moveu fontes nem alterou o histórico Git.
 

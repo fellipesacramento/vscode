@@ -1,12 +1,12 @@
 @echo off
 setlocal
 set "VSCODE_EXTENSIONS=D:\Caches\VSCode"
-set "JAVA_HOME=%~dp0..\jdk\jdk-21_windows-x64_bin\jdk-21.0.12.1"
+set "JAVA_HOME=%~dp0..\jdk\jdk-25_windows-x64_bin\jdk-25.0.5.0.3"
 set "MAVEN_HOME=%~dp0..\maven\apache-maven-3.9.16"
 set "M2_HOME=%MAVEN_HOME%"
 set "PATH=%JAVA_HOME%\bin;%MAVEN_HOME%\bin;%PATH%"
 if not exist "%JAVA_HOME%\bin\java.exe" (
-  echo Java 21 nao encontrado: %JAVA_HOME%
+  echo Java 25 nao encontrado: %JAVA_HOME%
   exit /b 1
 )
 if not exist "%MAVEN_HOME%\bin\mvn.cmd" (
